@@ -27,6 +27,7 @@ Actions:
     Configuration:
       # Required - Steps are sequential instructions that run shell commands
       Steps:
+        - Run: npm install
         - Run: npx sst deploy --stage prod
     Compute:
       Type: EC2
