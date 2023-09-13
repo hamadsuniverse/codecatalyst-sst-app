@@ -1,11 +1,14 @@
-Name: DeployToProd
+Name: DeployOnPull
 SchemaVersion: "1.0"
 
 # Optional - Set automatic triggers.
 Triggers:
-  - Type: Push
+  - Type: PULLREQUEST
     Branches:
-      - main
+      - feature\-.*
+    Events:
+      - OPEN
+      - REVISION
 
 # Required - Define action configurations.
 Actions:
@@ -27,12 +30,6 @@ Actions:
     Configuration:
       # Required - Steps are sequential instructions that run shell commands
       Steps:
-        - Run: npm install
-        - Run: npx sst deploy --stage prod
+        - Run: npx sst deploy --stage ${WorkflowSource.BranchName}
     Compute:
       Type: EC2
-    Environment:
-      Connections:
-        - Role: CodeCatalystWorkflowDevelopmentRole-AWS-CIC-23-24-Test
-          Name: "888641773886"
-      Name: Prod
