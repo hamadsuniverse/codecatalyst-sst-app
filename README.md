@@ -37,7 +37,7 @@ Run structurizr lite docker locally on port 8080, so you can access structurizr 
 
 ## Documentation
 
-Learn more about the SST.
+Learn more.
 
 - [SST Docs](https://docs.sst.dev/)
 - [sst](https://docs.sst.dev/packages/sst)
