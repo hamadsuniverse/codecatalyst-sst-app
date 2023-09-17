@@ -4,12 +4,14 @@ An example full-stack serverless React.js app created with SST, that uses Struct
 
 This sample also includes Amazon CodeCatalyst workflow (CD pipeline) to deploy changes to main branch to aws automatically.
 
-## After clone
+## After cloning
 
-`npm install`
-`npm run dev`
+```
+npm install
+npm run dev
+```
 
-To install dependencies and run dev environment.
+To install dependencies and run your own development environment of the app.
 
 ## Commands
 
