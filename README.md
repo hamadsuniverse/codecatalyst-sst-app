@@ -1,20 +1,15 @@
-# How to create a React.js app
+# Sample React.js SST app
 
-An example full-stack serverless React.js app created with SST.
+An example full-stack serverless React.js app created with SST, that uses Structurizr for documentation management of archtectural diagrams, docs and archtectural decisions capture using Architecture decision records (ADRs).
 
-## Getting Started
+This sample also includes Amazon CodeCatalyst workflow (CD pipeline) to deploy changes to main branch to aws automatically.
 
-[**Read the tutorial**](https://sst.dev/examples/how-to-create-a-reactjs-app-with-serverless.html)
+## After clone
 
-Install the example.
+`npm install`
+`npm run dev`
 
-```bash
-$ npx create-sst@latest --template=examples/react-app
-# Or with Yarn
-$ yarn create sst --template=examples/react-app
-# Or with PNPM
-$ pnpm create sst --template=examples/react-app
-```
+To install dependencies and run dev environment.
 
 ## Commands
 
@@ -34,9 +29,17 @@ Deploy all your stacks to AWS. Or optionally deploy, a specific stack.
 
 Remove all your stacks and all of their resources from AWS. Or optionally removes, a specific stack.
 
+### `npm run structurizr`
+
+Run structurizr lite docker locally on port 8080, so you can access structurizr at [http://localhost:8080](http://localhost:8080).
+
 ## Documentation
 
 Learn more about the SST.
 
-- [Docs](https://docs.sst.dev/)
+- [SST Docs](https://docs.sst.dev/)
 - [sst](https://docs.sst.dev/packages/sst)
+- [structurizr DSL](https://docs.structurizr.com/dsl)
+- [structurizr Lite](https://docs.structurizr.com/lite)
+- [adr-tools](https://github.com/npryce/adr-tools)
+
