@@ -1,6 +1,6 @@
 # Sample React.js SST app
 
-An example full-stack serverless React.js app created with SST, that uses Structurizr for documentation management of archtectural diagrams, docs and archtectural decisions capture using Architecture decision records (ADRs).
+An example full-stack serverless React.js app created with SST.
 
 This sample also includes Amazon CodeCatalyst workflow (CD pipeline) to deploy changes to main branch to aws automatically.
 
@@ -31,18 +31,11 @@ Deploy all your stacks to AWS. Or optionally deploy, a specific stack.
 
 Remove all your stacks and all of their resources from AWS. Or optionally removes, a specific stack.
 
-### `npm run structurizr`
-
-Run structurizr lite docker locally on port 8080, so you can access structurizr at [http://localhost:8080](http://localhost:8080).
-
 ## Documentation
 
 Learn more.
 
 - [SST Docs](https://docs.sst.dev/)
 - [sst](https://docs.sst.dev/packages/sst)
-- [structurizr DSL](https://docs.structurizr.com/dsl)
-- [structurizr Lite](https://docs.structurizr.com/lite)
-- [adr-tools](https://github.com/npryce/adr-tools)
 - [dbdocs](https://dbdocs.io/docs) (Used to host DB documentation.)
 
