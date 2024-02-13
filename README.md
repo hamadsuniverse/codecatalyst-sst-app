@@ -39,3 +39,6 @@ Learn more.
 - [sst](https://docs.sst.dev/packages/sst)
 - [dbdocs](https://dbdocs.io/docs) (Used to host DB documentation.)
 
+## Application/Feature Development Life Cycle 
+
+![Feature Dev LifeCylce](./docs/diagrams/app-dev-lifecycle.drawio.png)
