@@ -2,6 +2,8 @@ import { SSTConfig } from "sst";
 import { FrontendStack } from "./stacks/FrontendStack";
 import { DBStack } from "./stacks/DBStack";
 import { ApiStack } from "./stacks/ApiStack";
+import { ImageBuilderForCodeCatalyst } from "./stacks/devops/ImageBuilderForCodeCatalyst";
+import { OIDCForGitHubCI } from "./stacks/devops/OIDCForGitHubCI";
 
 export default {
   config(_input) {
@@ -16,8 +18,13 @@ export default {
       app.setDefaultRemovalPolicy("destroy");
     }
     
-    app.stack(DBStack)
-    .stack(ApiStack)
-    .stack(FrontendStack);
+    if (app.stage == 'devops') {
+      app.stack(ImageBuilderForCodeCatalyst)
+      .stack(OIDCForGitHubCI)
+    } else {
+      app.stack(DBStack)
+      .stack(ApiStack)
+      .stack(FrontendStack);
+    }
   }
 } satisfies SSTConfig;

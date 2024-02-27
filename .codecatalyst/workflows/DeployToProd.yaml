@@ -27,8 +27,11 @@ Actions:
     Configuration:
       # Required - Steps are sequential instructions that run shell commands
       Steps:
-        - Run: npm install
-        - Run: npx sst deploy --stage prod
+        - Run: chmod +x ./.codecatalyst/scripts/sst_deploy.sh
+        - Run: ./.codecatalyst/scripts/sst_deploy.sh
+      Container:
+        Registry: ECR
+        Image: 297940647071.dkr.ecr.us-west-2.amazonaws.com/codecatalyst-support:amazonlinux23withgit-1.2.0-7
     Compute:
       Type: EC2
     Environment:
