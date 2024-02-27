@@ -7,6 +7,7 @@ permissions:
   contents: read # This is required for actions/checkout
 jobs:
   build:
+    name: Build Check
     runs-on: ubuntu-latest
     strategy:
       matrix:
