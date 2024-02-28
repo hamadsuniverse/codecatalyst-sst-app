@@ -41,7 +41,7 @@ export function FrontendStack({ stack }: StackContext) {
       },
     }
   });
-
+  
   // Show the URLs in the output
   stack.addOutputs({
     SiteUrl: site.url,
