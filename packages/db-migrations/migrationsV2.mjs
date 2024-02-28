@@ -486,16 +486,14 @@ await db
   .insertInto('health_check')
   .values([
     {
-      check_id: 2,
+      check_id: 1,
       device_id: 1,
       camera_status: 1,
       temperature: 35,
       sensor_status: 1,
       check_date : new Date(),
       result: ''
-
     },
-
     {
       check_id: 2,
       device_id: 2,
@@ -504,9 +502,7 @@ await db
       sensor_status: 1,
       check_date : new Date(),
       result: ''
-
     },
-    
   ])
   .execute();
 
