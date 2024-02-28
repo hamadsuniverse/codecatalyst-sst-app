@@ -18,10 +18,13 @@ export default {
       app.setDefaultRemovalPolicy("destroy");
     }
     
-    if (app.stage == 'devops') {
+    if (app.stage == 'devops-coca') {
       app.stack(ImageBuilderForCodeCatalyst)
-      .stack(OIDCForGitHubCI)
-    } else {
+    }
+    else if (app.stage == 'devops-gh') {
+      app.stack(OIDCForGitHubCI)
+    }
+    else {
       app.stack(DBStack)
       .stack(ApiStack)
       .stack(FrontendStack);
