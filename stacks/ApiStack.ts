@@ -6,18 +6,27 @@ import { Duration } from "aws-cdk-lib/core";
 export function ApiStack({ stack }: StackContext) {
 
     const {table} = use(DBStack);
-
+    
     // Create the HTTP API
     const api = new Api(stack, "Api", {
         defaults: {
-        function: {
-            // Bind the table name to our API
-            bind: [table],
-        },
+            function: {
+                // Bind the table name to our API
+                bind: [table],
+            },
         },
         routes: {
-        "POST /": "packages/functions/src/lambda.main",
-        },
+            // Sample TypeScript lambda function
+            "POST /": "packages/functions/src/lambda.main",
+            // Sample Pyhton lambda function
+            "GET /": {
+                function: {
+                    handler: "packages/functions/src/sample-python-lambda/lambda.main",
+                    runtime: "python3.11",
+                    timeout: "60 seconds",
+                }
+            },
+        }
     });
 
     // cache policy to use with cloudfront as reverse proxy to avoid cors
