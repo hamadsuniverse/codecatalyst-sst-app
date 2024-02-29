@@ -4,6 +4,10 @@ An example full-stack serverless React.js app created with SST.
 
 This sample also includes Amazon CodeCatalyst and GitHub workflow (CD pipelines) to deploy changes of the main branch to AWS automatically. As well as additional checks that can be enabled to protect the main branch, require PR reviews, require build to pass before merge, perform secrets scanning on the repository and prevent secrets from being pushed to GitHub.
 
+This stack assumes that you have deployed the prod SST stage first which includes a relational database. Other non-prod stages refernce that relational database instead of creating their own. See [DBStack.ts](./stacks/DBStack.ts) for more details. 
+
+The template was designed this way to be __educational and to demonstrate the use of different stages (prod,dev,test) while keeping a single database for cost saving and simplification__ to be shared between them all. It is important to note that this is not a recommended setup for production uses. 
+
 ## Steps to get started (one time per repo)
 
 At a high level, these are the steps you need to take to use this template:
@@ -96,11 +100,13 @@ In addition, the [OIDCForGitHubCI.ts](devops/OIDCForGitHubCI.ts) stack provides 
 
 #### Configuration steps for GitHub Workflow
 
-1. Install aws-cdk-lib (pre-requisite for using SST)
+1. Pre-requisite for using SST
+    - Install aws cdk package 
 
-```bash
-npm i aws-cdk-lib
-```
+    ```bash
+    npm i aws-cdk-lib
+    ```
+    - Ensure that [Docker](https://docs.docker.com/engine/install/) is installed on your machine 
 
 2. Deploy the "devops-gh" stage
 
@@ -119,9 +125,10 @@ deploy-on-push-main.yaml
 
 4. (Re)Trigger a run of the workflows from the `actions` tab to report status checks of each workflow 
 
-Create a test/dummy PR to trigger the ci build test workflow.
+    1. Create a branch and perform some changes
+    2. Create a test/dummy PR to trigger the ci build test workflow.
 
-This inital run is needed to be able to select the status check as part of the branch protection to prevent PR merges on branches that do not pass the build check (ci).
+__This inital run is needed to be able to select the status check as part of the branch protection to prevent PR merges on branches that do not pass the build check (ci).__
 
 5. Enable branch protection, Require Pull Request and Reviews
 
@@ -241,3 +248,9 @@ Learn more.
 The figure below shows the typical application/feature devlopment workflow that you can follow. Exchange CodeCatalyst with GitHub if that is what you are using.
 
 ![Feature Dev LifeCylce](./docs/diagrams/app-dev-lifecycle.drawio.png)
+
+## Live Lambda Development  
+
+The figure below shows the an SST features called Live Lambda which allows you to debug and test your Lambda functions locally.
+
+![Live Lambda](./docs/diagrams/run-dev.drawio.png)
