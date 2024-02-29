@@ -9,7 +9,7 @@ export function OIDCForGitHubCI({stack }: StackContext) {
     clientIds: ['sts.amazonaws.com'],
     });
 
-    const organization = 'hamadsuniverse'; // Use your GitHub organization
+    const organization = 'cerashdan'; // Use your GitHub organization
     const repository = 'codecatalyst-sst-app'; // Use your GitHub repository
 
     new iam.Role(stack, 'GitHubActionsRole', {

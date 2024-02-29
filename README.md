@@ -92,11 +92,17 @@ This template includes two sample workflow definitions under the speical [.githu
 
 Additional checks can also be enabled to protect the main branch, require PR reviews, require build to pass before merge, perform secrets scanning on the repository and prevent secrets from being pushed to GitHub. Details are in the config steps section below.
 
-In addition, the [OIDCForGitHubCI.ts](devops/OIDCForGitHubCI.ts) stack provides an automation that deploys the OIDC identity provider that allows GitHub workflows from your repository to access your AWS account for deployment.
+In addition, the [OIDCForGitHubCI.ts](devops/OIDCForGitHubCI.ts) stack provides an automation that deploys the OIDC identity provider that allows GitHub workflows from your repository to access your AWS account for deployment. See [SST - Going to Production](https://docs.sst.dev/going-to-production#stacks-setup) if you would like to understnad more about it.
 
 #### Configuration steps for GitHub Workflow
 
-1. Deploy the "devops-gh" stage
+1. Install aws-cdk-lib (pre-requisite for using SST)
+
+```bash
+npm i aws-cdk-lib
+```
+
+2. Deploy the "devops-gh" stage
 
 ```bash
 npx sst deploy --stage devops-gh
@@ -104,20 +110,20 @@ npx sst deploy --stage devops-gh
 
 This will deploy the Open ID Connect (OIDC) identity provider in your account.
 
-2. Update the `role-to-assume:` and `aws-region:` attributes in both workflow yaml files to use the role created by the deployed stack. If you do not change the default values, the role name will be GitHub, and so only the AWS account ID will need to be updated in the yaml definition.
+3. Update the `role-to-assume:` and `aws-region:` attributes in both workflow yaml files to use the role created by the deployed stack. If you do not change the default values, the role name will be GitHub, and so only the AWS account ID will need to be updated in the yaml definition.
 
 ```
 build-test.yaml
 deploy-on-push-main.yaml
 ```
 
-3. (Re)Trigger a run of the workflows from the `actions` tab to report status checks of each workflow 
+4. (Re)Trigger a run of the workflows from the `actions` tab to report status checks of each workflow 
 
 Create a test/dummy PR to trigger the ci build test workflow.
 
 This inital run is needed to be able to select the status check as part of the branch protection to prevent PR merges on branches that do not pass the build check (ci).
 
-4. Enable branch protection, Require Pull Request and Reviews
+5. Enable branch protection, Require Pull Request and Reviews
 
 Go to `Settings`>`Branches`>`Add rule`
 
@@ -131,7 +137,7 @@ Go to `Settings`>`Branches`>`Add rule`
 
 `Save Changes`
 
-5. Enable secret scanning and push protection
+6. Enable secret scanning and push protection
 
 Go to `Settings`>`Branches`>`Add rule`
 
