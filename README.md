@@ -108,6 +108,8 @@ In addition, the [OIDCForGitHubCI.ts](devops/OIDCForGitHubCI.ts) stack provides 
     ```
     - Ensure that [Docker](https://docs.docker.com/engine/install/) is installed on your machine 
 
+2. Update [OIDCForGitHubCI.ts](./stacks/devops/OIDCForGitHubCI.ts) [line 12](./stacks/devops/OIDCForGitHubCI.ts#L12), and [line 13](./stacks/devops/OIDCForGitHubCI.ts#L13) with your organization/repository and repository name respectively.
+
 2. Deploy the "devops-gh" stage
 
 ```bash
@@ -146,7 +148,7 @@ Go to `Settings`>`Branches`>`Add rule`
 
 6. Enable secret scanning and push protection
 
-Go to `Settings`>`Branches`>`Add rule`
+Go to `Settings`>`Code security and analysis`>
 
 - Secret scanning: Enable
 - Push protection: Enable
