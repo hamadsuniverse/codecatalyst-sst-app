@@ -101,7 +101,7 @@ In addition, the [OIDCForGitHubCI.ts](devops/OIDCForGitHubCI.ts) stack provides 
 #### Configuration steps for GitHub Workflow
 
 1. Pre-requisite for using SST
-    - Install aws cdk package 
+    - Install AWS CDK NPM package 
 
     ```bash
     npm i aws-cdk-lib
