@@ -9,8 +9,8 @@ export function OIDCForGitHubCI({stack }: StackContext) {
     clientIds: ['sts.amazonaws.com'],
     });
 
-    const organization = 'hamadsuniverse'; // Use your GitHub organization
-    const repository = 'codecatalyst-sst-app'; // Use your GitHub repository
+    const organization = 'cic-testing-demo'; // Use your GitHub organization
+    const repository = 'codecatalyst-sst-app-maramesk2'; // Use your GitHub repository
 
     new iam.Role(stack, 'GitHubActionsRole', {
     assumedBy: new iam.OpenIdConnectPrincipal(provider).withConditions({
