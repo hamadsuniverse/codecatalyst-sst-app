@@ -96,7 +96,7 @@ This template includes two sample workflow definitions under the speical [.githu
 
 Additional checks can also be enabled to protect the main branch, require PR reviews, require build to pass before merge, perform secrets scanning on the repository and prevent secrets from being pushed to GitHub. Details are in the config steps section below.
 
-In addition, the [OIDCForGitHubCI.ts](devops/OIDCForGitHubCI.ts) stack provides an automation that deploys the OIDC identity provider that allows GitHub workflows from your repository to access your AWS account for deployment. See [SST - Going to Production](https://docs.sst.dev/going-to-production#stacks-setup) if you would like to understnad more about it.
+In addition, the [OIDCForGitHubCI.ts](./stacks/devops/OIDCForGitHubCI.ts) stack provides an automation that deploys the OIDC identity provider that allows GitHub workflows from your repository to access your AWS account for deployment. See [SST - Going to Production](https://docs.sst.dev/going-to-production#stacks-setup) if you would like to understnad more about it.
 
 #### Configuration steps for GitHub Workflow
 
